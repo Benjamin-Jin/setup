@@ -1,4 +1,4 @@
-#!/usr/bin
+#!/bin/bash
 
 ### Check OS ####
 if [ -f /etc/os-release ]; then
@@ -57,6 +57,9 @@ if [[ $OS = *"Ubuntu"* ]]; then
 		echo "### Exiting with Error! ###"
 		exit 1
 	fi
+
+	sudo apt-get install environment-modules
+
 elif [[ $OS = *"CentOS"* ]] && [[ $VER = *"7"* ]]; then
 	# git 2.x should be used
 	echo "### gib 2.x should be used. Installing Required Packages ###"
@@ -245,3 +248,5 @@ cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_INSTALL_PREFIX=$TOOLS_ROOT/clang/clan
 make -j8
 sudo make install
 cd $TOOLS_BUILD_DIR
+
+exit 0
