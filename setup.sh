@@ -104,7 +104,7 @@ elif [[ $OS = *"CentOS"* ]] && [[ $VER = *"7"* ]]; then
 
 	# prince
 	wget https://www.princexml.com/download/prince-12.4-1.centos7.x86_64.rpm
-	sudo yum localinstall ./prince-12.4-1.centos7.x86_64.rpm
+	sudo yum -y localinstall ./prince-12.4-1.centos7.x86_64.rpm
 else
 	echo "### OS mismatched! ###"
 	echo "### Exiting With Error! ###"
