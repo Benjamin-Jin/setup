@@ -34,6 +34,15 @@ echo "OS : $OS"
 echo "VERSION : $VER"
 
 echo "Installing Basic Packages For Setting For $OS"
+
+export TOOLS_ROOT=/sifive/tools
+sudo mkdir -p $TOOLS_ROOT
+
+mkdir tools-build
+export TOOLS_BUILD_DIR=$PWD/tools-build
+
+cd $TOOLS_BUILD_DIR
+
 if [[ $OS = *"Ubuntu"* ]]; then
 	sudo apt-get install openjdk-8-jdk makedev fuse libfuse-dev libsqlite3-dev libgmp-dev libncurses5-dev pkg-config git g++ gcc libre2-dev device-tree-compiler libfdt-dev autoconf automake libtool unzip flex bison libfl-dev gdebi-core build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libssl-dev libgdbm-dev libc6-dev libbz2-dev zlib1g-dev openssl libffi-dev python3 wget curl cmake
 
@@ -86,7 +95,7 @@ elif [[ $OS = *"CentOS"* ]] && [[ $VER = *"7"* ]]; then
 	./configure --prefix=/usr
 	make -j8
 	sudo make install
-	cd ..
+	cd $TOOLS_BUILD_DIR
 
 	# node
 	curl -sL https://rpm.nodesource.com/setup_11.x -o nodesource_setup.sh
@@ -102,11 +111,7 @@ else
 	exit 1
 fi
 
-export TOOLS_ROOT=/sifive/tools
-sudo mkdir -p $TOOLS_ROOT
 
-mkdir tools-build
-export TOOLS_BUILD_DIR=$PWD/tools-build
 
 cd $TOOLS_BUILD_DIR
 wget https://sourceforge.net/projects/tcl/files/Tcl/8.6.5/tcl8.6.5-src.tar.gz
