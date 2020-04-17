@@ -86,6 +86,7 @@ elif [[ $OS = *"CentOS"* ]] && [[ $VER = *"7"* ]]; then
 	./configure --prefix=/usr
 	make -j8
 	sudo make install
+	cd ..
 
 	# node
 	curl -sL https://rpm.nodesource.com/setup_11.x -o nodesource_setup.sh
