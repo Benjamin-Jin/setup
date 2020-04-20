@@ -40,6 +40,8 @@ sudo mkdir -p $TOOLS_ROOT
 mkdir tools-build
 export TOOLS_BUILD_DIR=$PWD/tools-build
 
+### ASK ###
+
 ### START ###
 cd $TOOLS_BUILD_DIR
 
