@@ -34,13 +34,13 @@ echo "OS : $OS"
 echo "VERSION : $VER"
 
 echo "Installing Basic Packages For Setting For $OS"
-
+### SETTING UP PATHS ###
 export TOOLS_ROOT=/sifive/tools
 sudo mkdir -p $TOOLS_ROOT
-
 mkdir tools-build
 export TOOLS_BUILD_DIR=$PWD/tools-build
 
+### START ###
 cd $TOOLS_BUILD_DIR
 
 if [[ $OS = *"Ubuntu"* ]]; then
